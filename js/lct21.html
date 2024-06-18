@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js21</title>
+</head>
+
+<body>
+    <h2>AJAX :- Asynchronous javascript and XML </h2>
+    <p id="xml"></p>
+    <button onclick="myname()" type="button">click</button>
+    <script> 
+        function myname() {
+
+            // create XMLHttpRequest Object 
+            let test = new XMLHttpRequest();
+
+            // onprogress 
+            // test.onprogress = function () {
+            //     document.getElementById("xml").innerHTML = "hello";
+            // }
+
+            // onreadystatechange (Option)
+            test.onreadystatechange = function () {
+                console.log("hello status :-" + test.readystate);
+            }
+
+            // open the XMLHttpRequest Object 
+            test.open("GET", "https://jsonplaceholder.typicode.com/posts");
+            test.send();
+
+
+            // call back function 
+            test.onload = function () {
+                document.getElementById("xml").innerHTML = test.responseText;
+                // document.getElementById("xml") = this.responseText;
+            }
+          // send a Request to a server 
+
+        }
+    </script>
+
+    <script>
+        //     function myname() {
+
+        //         // create XMLHttpRequest Object
+        //         let test = new XMLHttpRequest();
+
+        //         // onprogress
+        //         test.open("GET", "test.html");
+
+        //         // send a Request to a server
+        //         test.send();
+        //         document.getElementById("xml") = test.responseText;
+
+        //     }
+        // </script>
+
+
+    <!-- <script>
+        function myname() {
+
+            // create XMLHttpRequest Object 
+
+            let test = new XMLHttpRequest();
+
+            test.onreadystatecahnge = function () {
+                if (this.status === 200) {
+                    document.getElementById("xml") = test.responseText;
+                } else {
+                    document.getElementById("xml") = "data is not found";
+                }
+            }
+            // open the XMLHttpRequest Object 
+            test.open("GET", "https://jsonplaceholder.typicode.com/posts");
+
+            // send a Request to a server 
+            test.send();
+
+        };
+    </script>
+
+     <script>
+        // open the XMLHttpRequest Object 
+
+        function myname() {
+           
+            // test.open("POST", "https://jsonplaceholder.typicode.com/posts");
+            test.open("GET", "https://jsonplaceholder.typicode.com/posts");
+
+            test.getAllResponseHeaders("content-type"), "application"(JSON);
+
+            // send a Request to a server 
+            demo = `{"name": "rajvi", "salary": "2818", "age": "18"}`;
+            test.send(demo);
+            test.send();
+        }
+
+    </script> -->
+</body>
+
+</html>

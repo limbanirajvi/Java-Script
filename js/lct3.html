@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js3</title>
+</head>
+<body>
+    <h2>assignment</h2>
+
+    <pre>
+        addition (+)
+        subtraction(-)
+        multiplication(*)
+        divition(/)
+        modulus(%)
+    </pre>
+
+    <p id="ass"></p>
+    <script>
+        var a1 = 10;
+        a1 += 20;
+        a1 -= 20;
+
+        document.getElementById("ass").innerHTML="sum" + a1;
+    </script>
+
+
+    <h2>comparison</h2>
+
+    <pre>
+        == : equal to
+        === :equal value and equal data type
+        != : not equal
+        !== : not equal value and equal data type
+        > / >= :greater than
+        < / <= : less than
+        ? : ternary operator
+    </pre>
+
+    <p id="com"></p>
+
+    <script>
+        // let c1 = " 10";
+        // let c1 = 15;
+        // let c2 = "100";
+        // let c3 = c1 == c2;
+        // let c3 = c1 ===c2;
+        // let c3 = c1 !=c2;
+        // let c3 = c1 !==c2;
+        // let c3 = c1 >=c2;
+        // let c3 = c1 < c2;
+
+        // document.getElementById("com").innerHTML= "hello" + c3;
+
+    </script>
+
+    <h2>logical</h2>
+
+    <pre>
+        && / and
+        || / or
+        ! 
+    </pre>
+
+    <p id="log"></p>
+
+    <script>
+        // let g1 = 100;
+        // let g2 = 50;
+
+        // let g3 = ((g1 < 50) && (g2 > 10));
+        // let g3 = ((g1 < 50) || (g2 > 10));
+        // let g3 = ((g1 < 50)  !=  (g2 > 10));
+
+        // document.getElementById("log").innerHTML= " hiii" + " " + g1;
+        // document.getElementById("log").innerHTML= " heloo" + " " + g2;
+        // document.getElementById("log").innerHTML= " hey" + " " + g3;
+    </script>
+    <h2><li>if condition</li></h2>
+    <p id="if"></p>
+
+    <script>
+        let a = 17;
+        //  a = prompt ("please enter number")
+        // console.log(a);
+        // console.log(typeof(a));
+
+        // String to Number
+        // console.log(typeof(Number.parseInt(a)));
+
+        if (a < 18) {
+            document.getElementById("if").innerHTML = "hello" + " " + a;
+        }
+       
+    </script>
+
+<h2><li>if / else condition</li></h2>
+<p id="if1"></p>
+
+<script>
+    
+    let c = 14;
+        let b1 = Number.parseInt(c);
+        // let a1 = new Date().getHours();
+
+        if(b1 < 15){
+            document.getElementById("if1").innerHTML = "hy niraj " + " " + b1;
+        }
+        else{
+            document.getElementById("if1").innerHTML = "hy rajvi " + " " + b1;
+        }
+</script>
+
+<h2><li>else / if condition</li></h2>
+<p id="if2"></p>
+<script>
+    let c1 = 31;
+    let c2 = ' ';
+
+    if(c1 < 10){
+        c2 = "hello" + " " + c1 ;
+    }
+    else if (c1 < 20){
+        c2 = "hyyy" + " " + c1 ;
+    }
+    else if ((c1 < 30) || (c1 <= 30)){
+        c2 = "else if" + " " + c1 ;
+    }
+    else{
+        c2 = "not found this number" + " " + c1 ;
+    }
+    document.getElementById("if2").innerHTML = c2;
+</script>
+
+
+
+<h2><li>tarnary operator</li></h2>
+<p id="if3"></p>
+<script>
+    let t1  = "19";
+    t1 = t1 < 18 ? "okay" + t1 : "not okay" + " " + t1 ;
+
+    if (t1 < 18){
+        a = "okay" + " " + t1 ;
+    }
+    
+    else{
+        a = "not okay" + " " + t1 ;
+    }
+
+    //  console.log(typeof(t1));
+     console.log(typeof(Number.parseInt(t1)))
+    document.getElementById("if3").innerHTML = t1;
+    
+</script>
+
+</body>
+</html>

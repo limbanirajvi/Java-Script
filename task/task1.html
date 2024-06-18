@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsk1</title>
+</head>
+
+<body>
+    <input type="text" id="add">
+    <button onclick="add()">click</button>
+    <p id="gm"></p> 
+
+    <script>
+        function add() {
+            let c1 = document.getElementById("add").value;
+            let c2 = ' ';
+
+            if ((c1 >= 7) && (c1 <= 12)) {
+                c2 = "good morning 😍 ";
+            }
+            else if ((c1 >= 1) && (c1 <= 4)) {
+                c2 = "good afternoon 😊";
+            }
+            else if ((c1 >= 5) && (c1 <= 6)) {
+                c2 = "good evening 😢";
+            }
+            else {
+                c2 = "not found this number";
+            }
+            document.getElementById("gm").innerHTML = c2;
+        }
+    </script>
+
+
+
+
+
+
+    <!-- <h2><li>time-teble</li></h2>
+    <p id="tt"></p>
+
+    <script>
+        
+        let t1 = prompt("plese enter your time");
+        let t2 = ' ';
+    
+        if((t1 >= 1) && (t1 <= 32)){
+            t2 = " fail - plese try again "  ;
+        }
+        else if ((t1 >= 33)&& (t1 <= 40 )){
+            t2 = "pass - c3+" ;
+        }
+        else if ((t1 >= 41)&& (t1 <= 50)){
+            t2 = " pass - c2 "  ;
+        }
+        else if ((t1 >= 51)&& (t1 <= 60 )){
+            t2 = "pass - c1" ;
+        }
+        else if ((t1 >= 61)&& (t1 <= 70 )){
+            t2 = "pass - b3" ;
+        }
+        else if ((t1 >= 71)&& (t1 <= 80 )){
+            t2 = "pass - b2" ;
+        }
+        else if ((t1 >= 81)&& (t1 <= 90 )){
+            t2 = "pass - b1" ;
+        }
+        else if ((t1 >= 91)&& (t1 <= 100 )){
+            t2 = "pass - a1" ;
+        }
+        else{
+            t2 = "not found this number"  ;
+        }
+        document.getElementById("tt").innerHTML = t2;
+    </script> -->
+</body>
+
+</html>

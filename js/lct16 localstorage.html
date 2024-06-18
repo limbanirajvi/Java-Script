@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js16</title>
+</head>
+<body>
+    <h2>localStorage</h2>
+    <p id="test"></p>
+    <script>
+        let key = prompt("please enter key");
+        let value = prompt("please enter your value");
+
+        localStorage.setItem(key,value);
+
+        document.getElementById("test").innerHTML = " your key is =" + key + "your name is = " + localStorage.getItem(key);
+        document.getElementById("test").innerHTML = " your key is =" + key + "your name is = " + localStorage.getItem(0);
+
+        if(key == "name" || key == "hello"){
+            localStorage.removeItem(key);
+        }
+        if(key == 0){
+            localStorage.clear();
+        }
+    </script>
+</body>
+</html>

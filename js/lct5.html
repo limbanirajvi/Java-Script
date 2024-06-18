@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js5</title>
+</head>
+<body>
+    <h2>In</h2>
+
+    <p id="abc"></p>
+
+    <script>
+        let num = [ 10,20,30,40,50,60];
+        let text = ''; 
+        num.forEach(myname);
+        document.getElementById("abc").innerHTML = text;
+
+        function myname(v){
+            text += v + '<br>';
+        }
+        
+    </script>
+
+    <h2>of</h2>
+    <p  id="of"></p>
+
+    <script>
+        let car = ["bmw","audi","tata","maruti"];
+        let text1 = '';
+        for (let x of car){
+            text1 += x + "<Br>";
+        }
+
+        let a = "hello abcoding";
+        for(let x of a){
+            text1 += x + "<br>";
+        }
+
+        // let b = { fname : "mansi" , lname : "abc" , age : 20 } ;
+        // for(let x in b){
+        //     text1 += y + ":-" +b[x] + "<br>" ;
+        // }
+        document.getElementById("of").innerHTML = text1;
+    </script>
+
+    <h2>while loop</h2>
+    <p id="while"></p>
+
+    <script>
+        let w = 0 ;
+        let text2 = '' ;
+        // let  = prompt("number");
+
+        while( w < 10){
+            text2 += " this is number" + w + "<br>";
+            w++;
+        }
+        document.getElementById("while").innerHTML = text2;
+    </script>
+
+
+    <h2>do while</h2>
+    <p id="do"></p>
+
+    <script>
+        let x = 0;
+        let x2 = "";
+
+        do{
+            x2 += "this is number" + x + "<br>";
+            x++;
+        }
+        while (x < 10);
+        document.getElementById("do").innerHTML = x2
+    </script>
+
+
+    <h2>function js</h2>
+    <p id="ab"></p>
+    <script>
+        // let x5 = myname();
+        // document.getElementById("ab").innerHTML = x5;
+        
+        // function myname(){
+        //     return "hello abcoding";
+        // }
+
+        let x6 = myname(5,10);
+        document.getElementById("ab").innerHTML = x6;
+
+        function myname(a,b){
+           let a1 = "hello mansi";
+           return "hello abcoding" + " " + a + b + " " + a1;
+        }
+
+        // function add(a,b){
+        //     document.getElementById("ab").innerHTML = "hiii";   
+        //     return 1000 + (a+b);
+        // }
+        // // add
+        //     // document.getElementById("ab").innerHTML = add(a,b);
+        //     document.getElementById("ab").innerHTML = add(10,20);
+        //     document.getElementById("ab").innerHTML = add(212121212 ,215);
+    </script>
+
+        <h2>swich</h2>
+        <p id="swich"></p>
+
+    <script>
+        let d = 0;
+        // let d = new Date().getDay;
+        let day ="" ;
+
+        switch(d){
+            
+            case  0 :
+            day ="sunday" 
+            break;
+
+            case  1 :
+            day = "monday"
+            break;
+
+            case  2 :
+            day = "tuesday";
+            break;
+
+            case  3 :
+            day = "wendesdy";
+            break;
+
+            case  4 :
+            day = "thursday";
+            break;
+
+            case  5 :
+            day = "friday";
+            break;
+
+            case  6 :
+            day = "saturday" ;
+            break;
+
+            default:
+                day = "not found day" + d ;
+            
+        }
+        document.getElementById("swich").innerHTML = day;
+    </script>
+</body>
+</html>

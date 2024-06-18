@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js9</title>
+</head>
+<body>
+    <h2>Array</h2>
+    <p id="ary"></p>
+    <p id="ary1"></p>
+    <p id="ary2"></p>
+    <script>
+        let name = ['sweta','sonal','mansi','rajvi', 'harshal']; 
+
+        // document.getElementById("ary").innerHTML = name ;
+        document.getElementById("ary").innerHTML = name [3];
+
+        let name1 = [];
+        name [0] = "sweta";
+        name [1] = "sonal";
+        name [2] = "mansi";
+        name [3] = "rajvi";
+        name [4] = "harshal";
+
+        // document.getElementById("ary").innerHTML = name ;
+
+        // changes
+        name[4] = "abc";
+        
+        // add 
+        // name.push("harshal");
+
+        // let name = ['sweta','sonal','mansi','rajvi', 'harshal']; 
+        // console.log (typeof(name));
+        // let name2 = name.tostring();
+        // console.log(typeof(name2));
+
+        // let name3 = name.length;
+        // console.log(name3);
+        // let name4 = name[5];
+
+        // last Number
+        // let name5 = name [name.length-1]; 
+
+        // let name =  ['sweta','sonal','mansi','rajvi', 'harshal']; 
+        let len  = name.length;
+        let text = "<ul>";
+
+        for ( let i = 0; i <= len; i++ ){
+            text += "my name is :-" + name[1] + "<br>" ;
+        } 
+        for( let i = 0; i <=len ; i++){
+            text += " <li> my name is :-" + name [i] + "</li>";
+        } 
+        text += "</ul>";
+        document.getElementById("ary1").innerHTML = text ;
+
+
+        let abc = "<ol>";
+        // name.foreach (hello);
+        abc += "</ol>" ;
+        
+        function hello(v){
+            abc += "<li>" + v + "</li>";
+        }
+        document.getElementById("ary2").innerHTML = abc ;
+    </script>
+
+
+    <h2>Arrey methods</h2>
+    <p id="meth"></p>
+    <p id="meth1"></p>
+    <p id="meth2"></p>
+    <p id="meth3"></p>
+    <p id="meth4"></p>
+    <p id="meth5"></p>
+    <p id="meth6"></p>
+    <p id="meth7"></p>
+    <p id="meth8"></p>
+    <p id="meth9"></p>
+    <p id="meth10"></p>
+    <p id="meth11"></p>
+    <p id="meth12"></p>
+    <p id="meth13"></p>
+    <p id="meth14"></p>
+    <p id="meth15"></p>
+
+    <script>
+        let name6 = ['sweta','sonal','mansi','rajvi', 'harshal']; 
+        // length
+        // toString
+        // join
+        // document.getElementById("meth").innerHTML = name1.join("-");
+
+        // pop()
+        // document.getElementById("meth1").innerHTML = name1;
+        let pop1 = name.pop();
+        document.getElementById("meth1").innerHTML = pop1;
+        document.getElementById("meth1").innerHTML = name;               
+
+        // // push()
+        // document.getElementById("meth1").innerHTML = name1;
+        let push1 = name.push("abc");
+        document.getElementById("meth2").innerHTML = push1;
+        document.getElementById("meth2").innerHTML = name6;
+
+        // shift 
+        document.getElementById("meth3").innerHTML = name.shift();
+        document.getElementById("meth3").innerHTML = name;
+
+        // unshift 
+        document.getElementById("meth4").innerHTML = name.unshift("hello");
+        document.getElementById("meth4").innerHTML = name;
+
+        // change 
+        name[0] = "BVM";
+        document.getElementById("meth5").innerHTML = name;  
+        
+        // delete 
+        delete name[2];
+        document.getElementById("meth6").innerHTML = name;  
+
+        // concat 
+
+        // flat()
+        let ab = [[1,2] , [3,4], [5,6]] ;
+        document.getElementById("meth7").innerHTML = ab.flat();  
+
+        // slice 
+        let name3 = ['sweta','sonal','mansi','rajvi', 'harshal']; 
+        let ab2 = name3.slice(1,3);
+        name3.sort();
+        document.getElementById("meth8").innerHTML = name3;  
+        name3.reverse();
+        document.getElementById("meth9").innerHTML = name3; 
+        
+        // forEach 
+        // name.foreach(hello);
+        // function hello(){
+
+        // }
+
+        // Map
+        let ab3 = [10, 20, 30, 40, 50];
+        let num = ab3.map(mymap);
+        document.getElementById("meth10").innerHTML = num; 
+        function mymap(){
+            return a = 18;
+        }
+
+        let ab4 = [
+            {fname:"harshal", lname:"satasiya"},
+            {fname:"sweta", lname:"Godhani"},
+            {fname:"sonal", lname:"babariya"},
+        ]
+        let c = ab4.map(hello);
+        document.getElementById("meth11").innerHTML =c;
+        function hello(h){
+            // console.log(h);
+            return h.fname + " " + h.lname + "<br>";
+        } 
+
+        // filter 
+        let rn = [10, 2, 15, 40, 50];
+        let number = rn.filter(mymap);
+        document.getElementById("meth12").innerHTML =num;
+        function mymap(a){
+            return a > 35 ; 
+        }
+
+        // reduce 
+        let nr = [10,20,30,40,50];
+        let num1 = nr.reduce(mymap) ;
+        document.getElementById("meth13").innerHTML =num1;
+        function mymap( total,a ){
+            return total + a;   
+        }
+
+        // some 
+        let rnn = [100,2,15,4,5];
+        let num2 = rnn.some(mymap) ;
+        document.getElementById("meth14").innerHTML =num2;
+        function mymap(RN){
+            return RN > 18;   
+        }
+        // every 
+        let RN = [100,2,15,4,5];
+        let num3 = rnn.every(mymap) ;
+        document.getElementById("meth15").innerHTML =num3;
+        function mymap(RN){
+            return RN > 18;   
+        }
+
+    </script>
+</body>
+</html>

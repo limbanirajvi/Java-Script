@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js20</title>
+</head>
+<body>
+    <h1>Jquary</h1>
+
+    <p id="ab1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, suscipit ex! Assumenda, facere! Consequatur exercitationem magnam, iste quo quam illum eius, veniam corporis ipsam sed tempora voluptatum, nemo nobis incidunt.</p>
+    <p id="ab2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita harum sint aut vero consequuntur facilis in, molestias voluptates dolores tenetur aliquam repudiandae quibusdam aliquid, iure neque fugiat laborum incidunt omnis.</p>
+
+    
+    <p id="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis autem expedita ab, aut rem dolore magnam omnis necessitatibus laborum sunt nisi distinctio similique quod dolores impedit dicta perspiciatis? Dignissimos, tempora?</p>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // jquery
+
+        $(document).ready(function(){
+            var abc = $ ("#ab1");
+            $("#test").text ('hello abc :- ' + abc[0].innerHTML)
+        });
+
+        // js 
+
+        let abc2 = document.getElementById('ab2');
+        document.getElementById("ab2").innerHTML = "hello" + " " + abc2.innerHTML;
+    </script>
+
+    <h1>set text</h1>
+    <p id="ab3"></p>
+    <script>
+         $(document).ready(function(){
+            var abc = $ ("#ab3");
+           abc.text('hello rajvi')
+        });
+    </script>
+
+    <h1>get text</h1>
+    <p id="set">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores tenetur adipisci sequi at eligendi soluta quas amet, officiis nisi ex sapiente. Enim non ut vitae eaque tenetur, quod nisi adipisci?</p>
+    <p id="get"></p>
+    <script>
+         $(document).ready(function(){
+            var abc = $ ("#set").text();
+            $ ("#get").text(abc);
+          
+        });
+    </script>
+
+    <h1>set html </h1>
+    <p id="set1"></p>
+    <p id="get1"></p>
+    <script> 
+
+         $(document).ready(function(){
+            var abc = $ ("#set1");
+            abc.html("<b> hello rajvi </b>")          
+        });
+
+        $(document).ready(function(){
+            var abc = $ ("#set1").html();
+           $ ("#get1").html(abc);          
+        });
+    </script>
+
+    <h1>CSS</h1>
+    <p id="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem delectus itaque repellat provident necessitatibus autem officiis sunt ad, officia, ipsum asperiores distinctio consectetur beatae vitae quod cupiditate minima iure totam?</p>
+    <script>
+        $ (document).ready(function(){
+            // $("#demo").hide();
+            // $("demo").show();
+            $("#demo").css('color','red');
+            // $("#demo").remove();
+        });
+    </script>
+
+    <h1>click</h1>
+    <p  id="abc4" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam id excepturi, asperiores quae voluptatem eaque suscipit quos consequatur quod ipsum possimus cumque tenetur quidem! Cumque nemo consectetur dolores vero sit.</p>
+    <script>
+        // click
+
+        // $(document).ready(function(){
+        //    $ ('p').click(function(){
+        //     $(this).hide();
+        //    })      
+        // });
+
+        // // // dblclick 
+        // $(document).ready(function(){
+        //    $ ('p').dblclick(function(){
+        //     $(this).hide();
+        //    })      
+        // });
+
+
+        // mousedown
+        // $(document).ready(function(){
+        //    $ ('p').mousedown(function(){
+        //     $("#abc4").css('color','green');
+        //    })      
+        // });
+
+
+        // // mouseup
+        // $(document).ready(function(){
+        //    $ ('p').mouseup(function(){
+        //     $("#abc4").css('color','orange');
+        //    })      
+        // });
+
+        // hover
+        // $(document).ready(function(){
+        //    $("#abc4").hover(function(){
+        //     $("#abc4").css('color','red');
+        //    })    
+        // });
+
+        // blur
+        //   $(document).ready(function(){
+        //    $ ("p").blur(function(){
+        //     $("#abc4").css('color','grey');
+        //    })      
+        // });
+
+        // focus
+        // $(document).ready(function(){
+        //    $ ("p").focus(function(){
+        //     $("#abc4").css('color','grey');
+        //    })      
+        // });
+
+
+        $ ("p").on({
+            // mousedown:function(){
+        //     //     $("p").css('background-color','pink');
+        //     // },
+
+        //     // mouseup:function(){
+        //     //     $("p").css('background-color','blue');
+        //     // },
+
+        //     // click:function(){
+        //     //     $("p").css('background-color','red');
+        //     // },
+
+            mouseenter:function(){
+                $(this).css('background-color','green');
+            },
+
+            mouseleave:function(){
+                $(this).css('background-color','pink');
+            },
+
+            click:function(){
+                $(this).css('background-color','red');
+            },
+
+        });
+
+
+    </script>
+</body>
+</html>

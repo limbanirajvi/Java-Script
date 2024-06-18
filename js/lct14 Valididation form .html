@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js14</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        center {
+            font-size: 35px;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            word-spacing: 4px;
+            color: palevioletred;
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        form {
+            width: 337px;
+            /* background-color: rgba(126, 126, 126, 0.817); */
+            padding: 15px 40px 40px;
+            border: 1px solid #cccccc;
+            margin: 80px auto 0;
+            border-radius: 5px;
+        }
+
+        input,
+        select {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: block;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .row {
+            padding-bottom: 17px;
+        }
+
+        .form-inline {
+            border: 1px solid black;
+            padding: 6px 10px 7px;
+            border-radius: 5px;
+        }
+
+        .form-inline label,
+        .form-inline input {
+            display: inline-block;
+            width: auto;
+            padding-right: 15px;
+        }
+
+        .error{
+            color: red;
+        }
+
+        input[type="submit"] {
+            background-color: #cccccc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>Valididation form </center>
+    <form action="#" name="contactform" onsubmit="return Valididateform()">
+
+        <h2>application form </h2>
+
+        <div class="row">
+            <label for="name">Name :-</label>
+            <input type="text" name="name" id="name" placeholder="please enter name...">
+            <div id="nameErr" class="error"></div>
+        </div>
+
+        <div class="row">
+            <label for="name">Email :-</label>
+            <input type="email" name="email" id="email" placeholder="please enter email...">
+            <div id="emailErr" class="error"></div>
+        </div>
+
+        <div class="row">
+            <label for="name">Mobile :-</label>
+            <input type="mobile" name="mobile" id="mobile" placeholder="please enter mobile...">
+            <div id="mobileErr" class="error"></div>
+        </div>
+
+        <div class="row">
+            <label for="name">Subject :-</label>
+            <select name="Subject" id="Subject">
+                <option>selected</option>
+                <option value="html">html</option>
+                <option value="css">css</option>
+                <option value="js">js</option>
+                <option value="php">php</option>
+            </select>
+            <div id="subjectErr" class="error"></div>
+        </div>
+
+        <div class="row">
+            <label for="gender">Gender :-</label>
+            <div class="form-inline">
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="gender">male</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="gender">female</label>
+            </div>
+            <div id="gendertErr" class="error"></div>
+        </div>
+
+
+        <div class="row">
+            <label for="hobbies">Hobbies :-</label>
+            <div class="form-inline">
+
+                <input type="checkbox" name="hobbies[]" id="sports">
+                <label for="sports">Sports</label>
+
+                <input type="checkbox" name="hobbies[]" id="movie">
+                <label for="movies">Movies</label>
+
+                <input type="checkbox" name="hobbies[]" id="movie">
+                <label for="movies">Music</label>
+            </div>
+            <div id="hobbiesErr" class="error"></div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="submit">
+        </div>
+
+        <script>
+
+            function printError(elemID, mess) {
+                document.getElementById(elemID).innerHTML = mess;
+            }
+
+            function Valididateform() {
+                // alert("hello");   
+                var name = document.contactform.name.value;
+                var email = document.contactform.email.value;
+                var mobile = document.contactform.mobile.value;
+                var Subject = document.contactform.Subject.value;
+                var gender = document.contactform.gender.value;
+                var hobbies = [];
+                var checkbox = document.getElementsByName('hobbies[]');
+
+                for (var i = 0; i < checkbox.length; i++) {
+                    if (checkbox[i].checked) {
+                        hobbies.push(checkbox[i].value)
+                    }
+                }
+                var nameErr = emailErr = mobileErr = SubjectErr = genderErr = hobbiesErr = true;
+
+                if (name == '') {
+                    printError('nameErr', 'please enter your name....');
+                } else {
+                    var regname = /^[a-zA-Z ]{2,30}$/;
+                    if (regname.test(name) === false) {
+                        printError('nameErr', 'please enter a valid name....');
+                    } else {
+                        printError('nameErr', '');
+                        nameErr = false;
+                    }
+                }
+
+                if (email == '') {
+                    printError('emailErr', 'please enter your email....');
+                } else {
+                    var regname = /^\S+@\S+\.\S+$/;
+                    if (regname.test(email) === false) {
+                        printError('emailErr', 'please enter a valid email....');
+                    } else {
+                        printError('emailErr', '');
+                        emailErr = false;
+                    }
+                }
+
+                if (mobile == '') {
+                    printError('mobileErr', 'please enter your mobile....');
+                } else {
+                    var regname = /^[0-9]{1,10}$/g;
+                    if (regname.test(mobile) === false) {
+                        printError('mobileErr', 'please enter a valid  10 digit mobile number....');
+                    } else {
+                        printError('mobileErr', '');
+                        mobileErr = false;
+                    }
+                }
+
+                if (Subject == 'selected') {
+                    printError('subjectErr', 'please enter your Subject....');
+                } else {
+                    printError('subjectErr', '');
+                    subjectErr = false;
+                }
+
+                if (gender == '') {
+                    printError('genderErr', 'please enter your gender....');
+                } else {
+                    printError('genderErr', '');
+                    genderErr = false;
+                }
+
+                if (hobbies == '') {
+                    printError('hobbiesErr', 'Please enter your hobbies');
+                } else {
+                    printError('hobbiesErr', '');
+                    hobbiesErr = false;
+                }
+
+                if ((nameErr || emailErr || mobileErr || SubjectErr || genderErr || hobbiesErr) == true) {
+                    return false;
+                }
+
+                // console.log(Valididateform);
+            };
+        </script>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="show"></h2>
+    <button onclick="myname()">click</button>
+    
+    <script>
+        function myname () {
+            const nums = [2, 5, 7, 10, 1, 8, 9];
+            const target = 14;
+            const result = name(nums, target);
+            document.getElementById("show").innerHTML = result.join(" , ");
+            console.log(result);    
+        }
+
+        function name(nums, target) {
+            let index = new Map();
+            for (let i = 0; i < nums.length; i++) {
+                let text = target - nums[i]; 
+
+                if (index.has(text)) {
+                    return [index.get(text), i]; 
+                }
+
+                index.set(nums[i], i); 
+            }
+
+            return []; 
+            // console.log(name(nums, target));
+        }
+    </script>
+</body>
+</html>

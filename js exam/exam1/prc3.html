@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>switch case</h2>
+        <input type="text" id="class">
+        <button onclick="swich()">submit</button>
+        <p id="demo"></p>
+
+   <script>
+        function swich() {
+        let d1 = document.getElementById("class").value;
+        let d = new Date().getDay;
+        let day ="" ;
+
+        switch(d){
+            
+            case  0 :
+            day ="sunday" 
+            break;
+
+            case  1 :
+            day = "monday"
+            break;
+
+            case  2 :
+            day = "tuesday";
+            break;
+
+            case  3 :
+            day = "wendesdy";
+            break;
+
+            case  4 :
+            day = "thursday";
+            break;
+
+            case  5 :
+            day = "friday";
+            break;
+
+            case  6 :
+            day = "saturday" ;
+            break;
+
+            default:
+                day = "not found day" + d ;
+            
+        }
+            document.getElementById("demo").innerHTML = day;
+        }
+    </script>
+</body>
+</html>

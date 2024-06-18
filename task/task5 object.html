@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsk5</title>
+</head>
+
+<body>
+    <div id="rajvi"></div>
+    <div id="rajvi1"></div>
+    <div id="rajvi2"></div>
+    <div id="rajvi3"></div>
+    <div id="rajvi4"></div>
+    <div id="rajvi5"></div>
+    <script>
+        let name = {
+            fname: "rajvi",
+            age: 18,
+            lname: "limbani"
+        }
+
+        // change Object
+        name.fname = "rajvi";
+        delete name.age;
+        // delete name.fname;
+        document.getElementById("rajvi").innerHTML = "my name is :-" + name.fname + " " + name.age + " " + name.lname;
+
+        // null Object value store 
+        let rn = {}
+            rn.car = "audi",
+            rn.model = "A1",
+            rn.price = "$52467",
+
+        document.getElementById("rajvi1").innerHTML = "my car name is :-" + rn.car + "<br>" + "my car model is :-" + " " + rn.model + " " + "<br>" + "my car price is :-" + rn.price;
+
+        // Object in for loop 
+        let car = {
+            name: "Thar",
+            model: "B1",
+            price: "$56896"
+        }
+        let car1 = '';
+        for (let x in car) {
+            car1 += [x] + " :- " + car[x] + "<br>";
+        }
+        document.getElementById("rajvi2").innerHTML = car1;
+
+        // add 
+        let nr = {
+            fruit: "banana",
+            weight: "50gm",
+        }
+        name.price = "$20";
+        document.getElementById("rajvi3").innerHTML = nr.fruit + " " + nr.weight + " " + nr.price;
+
+        // nexted Object in loop 
+        let cars = {
+            name: "BMW",
+            model: "c1",
+            price: "$56896",
+
+            obj: {
+                crush: "Thar",
+                model: "A1",
+                price: "$56896",
+            }
+        }
+        let royal = '';
+        for (let x in cars.obj) {
+            royal += [x] + " :- " + cars.obj[x] + "<br>"
+        }
+        document.getElementById("rajvi4").innerHTML = royal;
+
+        // Object in function call in value update 
+
+        let carse = {
+            carname: "Audi",
+            carmodel: "A1",
+            carprice: "$657",
+
+            myname: function () {
+                return this.carname + "<br>" + '' + this.carprice;
+            }
+        }
+        document.getElementById("rajvi5").innerHTML = carse.myname().toUpperCase();
+    </script>
+</body>
+
+</html>

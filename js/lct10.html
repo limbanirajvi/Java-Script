@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js10</title>
+</head>
+
+<body>
+    <p id="abc"></p>
+    <p id="abc1"></p>
+    <p id="abc2"></p>
+    <p id="abc3"></p>
+    <p id="abc4"></p>
+    <p id="abc5"></p>
+    <p id="abc6"></p>
+    <p id="abc7"></p>
+    <p id="abc8"></p>
+    <p id="abc9"></p>
+    <p id="abc10"></p>
+
+    <script>
+
+        // spilce 
+        // let n = ['sweta', 'sonal', 'mansi', 'rajvi', 'harshal'];
+        // n.spilce(1, 3, "hello");
+        // document.getElementById("abc").innerHTML = n;
+
+        // Arrey.isarrey 
+        // let a = [10, 20, 30];
+        // let ab = Array.isArray(a)
+        // document.getElementById("abc1").innerHTML = ab;
+
+        // indexof()
+
+        // lastindex()
+
+        // find()
+        // let nr = [2, 5, 40, 52, 44];
+        // let num = nr.find(ab);
+        // document.getElementById("abc2").innerHTML = num;
+        // function ab(a) {
+        //     return a > 12;
+        // }
+        // document.getElementById("abc2").innerHTML = num;
+
+
+        // // keys
+        // let rn = ['sweta', 'sonal', 'mansi', 'rajvi', 'harshal'];
+        // let abc = rn.keys();
+        // let name1 = '';
+        // for (let n of rn) {
+        //     name1 += n + "<br>";
+        // }
+        // document.getElementById("abc3").innerHTML = name1;
+
+        // // enteries
+        // let rn1 = ['sweta', 'sonal', 'mansi', 'rajvi', 'harshal'];
+        // let abc1 = rn.entries();
+        // let name2 = '';
+        // for (let n of rn1) {
+        //     name2 += n + "<br>";
+        // }
+        // document.getElementById("abc4").innerHTML = name2;
+
+        // // Array of Object
+        // let ab4 = [
+        //     { fname: "harshal", lname: "satasiya" },
+        //     { fname: "sweta", lname: "Godhani" },
+        //     { fname: "sonal", lname: "babariya" },
+        // ]
+        // console.log(ab4.length);
+        // document.getElementById("abc5").innerHTML = ab4[0].fname + " " + ab4[0].lname;
+
+        // for (let a = 1; a < ab4.length; a++) {
+        //     var name3 = ab4[a].fname + " " + ab4[a].lname;
+        // }
+        // document.getElementById("abc6").innerHTML = name3;
+
+        // // multiple arrey
+        // let nn = [
+        //     ['abc', 10, 'hello', 20],
+        //     ['abc1', 10, 'hello1', 20],
+        //     ['abc2', 10, 'hello2', 20],
+        //     ['abc3', 10, 'hello3', 20],
+        // ]
+        // document.getElementById("abc7").innerHTML = nn[0][2];
+        // document.getElementById("abc8").innerHTML = nn[1][2];
+
+        // let ab5 = '';
+        // for (let a = 0; a < ab4.length; a++) {
+        //     console.log(name[a].length);
+
+        //     for (let a = 0; a < ab4.length; a++) {
+        //         console.log(name[a].length);
+        //         ab5 += name[a] + "<br><br>"
+        //     }
+        // }
+        // document.getElementById("abc6").innerHTML = ab5;
+    </script>
+
+    <h2>find</h2>
+    <div id="abcc1"></div>
+    <div id="abcc2"></div>
+    <script>
+        let nr = [2, 5, 40, 52, 44];
+        let num = nr.find(ab);
+        document.getElementById("abcc1").innerHTML = num;
+        function ab(a) {
+            return a > 12;
+        }
+        document.getElementById("abcc2").innerHTML = num;
+    </script>
+
+    <hr>
+    <h2>splice</h2>
+    <p id="abcc3"></p>
+    <p id="abcc4"></p>
+
+    <script>
+
+        let car = ["bmw", "tata", "maruti", "mahidra"];
+        car.splice(1, 2, "audi");
+        document.getElementById("abcc3").innerHTML = car;
+
+        let n = ["sweta", "sonal", "mansi", "rajvi", "harshal"];
+        n.splice(1, 3, "sweta");
+        document.getElementById("abcc4").innerHTML = n;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js12</title>
+</head>
+<body>
+    <h2>ITERABLES - FOR OF</h2>
+    <P id="ite"></P>
+    <P id="ite1"></P>
+
+    <script>
+
+        // String
+        let name = "hello";
+        let text = '';
+        for (let x of name){
+            text += x + "<br>" ;
+        }
+        document.getElementById("ite").innerHTML = text;
+
+        // Array
+
+        // Map
+        let ab1 = new Map([
+            ['sweta',100],
+            ['sonal',200],
+            ['mansi',300],
+            ['rajvi',400],
+            ['harshal',500],
+        ]);
+        let test = '';
+        for (let a of ab1){
+            test += a + "<br>";
+        }
+        document.getElementById("ite1").innerHTML = test;
+    </script>
+
+    <hr>
+    <h2>SETS</h2>
+    <p id="set"></p>
+    <p id="set1"></p>
+    <p id="set2"></p>
+    <p id="set3"></p>
+    <p id="set4"></p>
+    <p id="set5"></p>
+    <p id="set6"></p>
+
+    <script>
+        // creat a set 
+        let name1 = new Set(['a','b','c','d']);
+        document.getElementById("set").innerHTML = name1.size;
+        let name2 = new Set();
+
+        // value set 
+        name2.add("a");
+        name2.add("b");
+        name2.add("c");
+        name2.add("d");
+        document.getElementById("set1").innerHTML = name1.size;
+        let name3 = new Set();
+
+        // varibles 
+        let a = "a";
+        let b = "b";
+        let c = "c";
+        let d = "d";
+
+        // variables set 
+
+        name3.add(a);
+        name3.add(b);
+        name3.add(c);
+        name3.add(d);
+        document.getElementById("set2").innerHTML = name1.size;
+        document.getElementById("set3").innerHTML = name1.values();
+
+
+        let nr = '';
+        name3.forEach(function(v){
+            nr += v + "<br>";
+        });
+        document.getElementById("set4").innerHTML = nr;
+        
+
+        let word = '';
+        for (let x of name1.values()){
+            word += x + "<br>" ;
+        };
+        document.getElementById("set5").innerHTML = word;
+
+    </script>
+
+    <hr>
+    
+    <h2>MAP</h2>
+    <p id="map"></p>
+    <p id="map1"></p>
+    <p id="map2"></p>
+    <p id="map3"></p>
+    <p id="map4"></p>
+
+    <script>
+        let m = new Map();
+
+        // set map value 
+        m.set ("mansi",100);
+        m.set("rajvi",200);
+        m.set("harshal",300);
+        document.getElementById("map").innerHTML = m.get('rajvi');
+
+        let rn = new Map ([
+            ['sweta',100],
+            ['sonal',200],
+            ['mansi',300],
+            ['rajvi',400],
+            ['harshal',500],
+        ]);
+        rn.set('sweta1212',5445744);
+        rn.delete('rajvi')
+        document.getElementById("map1").innerHTML = rn.get('sweta1212');
+        document.getElementById("map2").innerHTML = rn.has('sweta122');
+        document.getElementById("map3").innerHTML = rn.size;
+
+        // entries 
+
+        // regular expression 
+
+        try{
+            const car = {name : 'thar', model :'a1'};
+            car = {name : 'audi', model :'a2'}
+        }
+        catch(err){
+        document.getElementById("map4").innerHTML = err;
+        }
+    </script>
+</body>
+</html>

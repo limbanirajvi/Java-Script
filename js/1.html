@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jS CRUD</title>
+    <style>
+        .center{
+            text-align: center;
+        }
+        .employee-form{
+            border-style: solid;
+            padding: 10px;
+            margin: auto;
+            width: 50%;
+        }
+        .employees-table{
+            border-style: solid;
+            padding: 20px;
+            width: 70%;
+            margin: auto;
+        }
+        body>table{
+            width: 80%;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table.list{
+            width: 100%;
+        }
+        td,th{
+            border: 1px solid #cccccc;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even),table.list thead>tr{
+            background-color: #cccccc;
+        }
+
+        input[type=text],input[type=number]{
+            width: 100%;
+            padding: 8px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #cccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type=submit]{
+            width: 30%;
+            background-color: black;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-action-buttons{
+            text-align: right;
+        }
+        label.validation-error{
+            color: red;
+            margin-left: 5px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">Employee Form</h1>
+    <div class="employee-form">
+        <form onsubmit="event.preventDefault(); onFormSubmit();">
+            <div>
+                <label for="fullname">Full Name:</label>
+                <label class="validation-error hide" id="fullNameValidationError">This Field Is Required.</label>
+                <input type="text" name="fullname" id="fullname" placeholder="please enter your Full name..">
+            </div>
+            <div>
+                <label for="email"> Email:</label>
+                <label class="validation-error hide" id="EmailValidationError">This Field Is Required.</label>
+
+                <input type="text" name="email" id="email" placeholder="Please enter Your Email Address..">
+            </div>
+            <div>
+                <label for="salary">Salary:</label>
+                <label class="validation-error hide" id="salaryNameValidationError">This Field Is Required.</label>
+
+                <input type="text" name="salary" id="salary" placeholder="Please enter your Salary..">
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <label class="validation-error hide" id="cityValidationError">This Field Is Required.</label>
+
+                <input type="text" name="city" id="city" placeholder="Please enter your City..">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <br><hr>
+    <div class="employees-table">
+        <table class="list" id="employeeList">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var selectedRow = null;
+        function onFormSubmit(){
+            if(validate()){
+                var formData = readFormData();
+                if(selectedRow == null){
+                    insertNewRecord(formData);
+                }else{
+                    updateRecord(formData);
+                }
+                resetForm();
+            }
+        }
+
+        function resetForm(){
+            document.getElementById("fullname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("salary").value = "";
+            document.getElementById("city").value = "";
+        }
+
+        function readFormData(){
+            var formData = {};
+            formData["fullname"] = document.getElementById("fullname").value;
+            formData["email"] = document.getElementById("email").value;
+            formData["salary"] = document.getElementById("salary").value;
+            formData["city"] = document.getElementById("city").value;
+            return formData;
+        }
+        function insertNewRecord(data){
+            console.log(data);
+            var table = document.getElementById("employeeList").getElementsByTagName("tbody")[0];
+            var newRow = table.insertRow(table.length);
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = data.fullname;
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = data.email;
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = data.salary;
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = data.city;
+            cell5 = newRow.insertCell(4);
+            cell5.innerHTML = `<a style= "background-color: yellow;
+            padding: 8px 16px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;"onClick="onEdit(this)">Edit</a>
+                                <a style=" background-color: green;
+            padding: 8px 16px;
+            color: black;
+            text-decoration: none;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;" onClick="onDelete(this)">Delete</a>`;
+        }
+        
+        function onEdit(td){
+            selectedRow = td.parentElement.parentElement;
+            //console.log(selectedRow);
+            document.getElementById("fullname").value = selectedRow.cells[0].innerHTML;
+            document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+            document.getElementById("salary").value = selectedRow.cells[2].innerHTML;
+            document.getElementById("city").value = selectedRow.cells[3].innerHTML;
+        }
+
+        function updateRecord(formdata){
+            selectedRow.cells[0].innerHTML = formdata.fullname;
+            selectedRow.cells[1].innerHTML = formdata.email;
+            selectedRow.cells[2].innerHTML = formdata.salary;
+            selectedRow.cells[3].innerHTML = formdata.city;
+        }
+
+        function onDelete(td){
+            if(confirm("are you sure to deleted this record ?")){
+                row = td.parentElement.parentElement;
+                document.getElementById("employeeList").deleteRow(row.rowIndex);
+            }
+        }
+
+        function validate(){
+            isvalid = true;
+            let name = document.getElementById("fullname").value;
+            if(name == ''){
+                isvalid = false;
+                document.getElementById('fullNameValidationError').classList.remove("hide");
+            }else{
+                isvalid = true;
+                if(!document.getElementById('fullNameValidationError').classList.contains("hide")){
+                    document.getElementById('fullNameValidationError').classList.add("hide")
+                }
+            }
+
+            let email = document.getElementById("email").value;
+            if(email == ''){
+                isvalid = false;
+                document.getElementById('EmailValidationError').classList.remove("hide");
+            }else{
+                isvalid = true;
+                if(!document.getElementById('EmailValidationError').classList.contains("hide")){
+                    document.getElementById('EmailValidationError').classList.add("hide")
+                }
+            }
+
+            let  salary= document.getElementById("salary").value;
+            if(salary == ''){
+                isvalid = false;
+                document.getElementById('salaryNameValidationError').classList.remove("hide");
+            }else{
+                isvalid = true;
+                if(!document.getElementById('salaryNameValidationError').classList.contains("hide")){
+                    document.getElementById('salaryNameValidationError').classList.add("hide")
+                }
+            }
+
+            let  city= document.getElementById("city").value;
+            if(city == ''){
+                isvalid = false;
+                document.getElementById('cityValidationError').classList.remove("hide");
+            }else{
+                isvalid = true;
+                if(!document.getElementById('cityValidationError').classList.contains("hide")){
+                    document.getElementById('cityValidationError').classList.add("hide")
+                }
+            }
+            return isvalid;
+        }
+    </script>
+</body>
+</html>

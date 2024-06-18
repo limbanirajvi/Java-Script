@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js19</title>
+</head>
+<body>
+    <h2>DOM- Document Object Model</h2>
+    <p id="abc"></p>
+    <h2 onclick="this.innerHTML = 'hello abcoding'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
+        autem</h2>
+    <p onclick="Myname()">Lorem ipsum dolor sit amet.</p>
+    <button onclick="Myname(this)">click</button>
+
+    <script>
+        function Myname(id) {
+            id.innerHTML = "hello";
+        }
+    </script>
+    <hr>
+
+
+    <h2>onmouseover and onmouseout</h2>
+    <div style="background-color: black; color: white; padding: 10px; text-align: center; font-size: 18px;"
+        onmouseover="onm(this)" onmouseout="onout(this)">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Aliquam, non odio quo nostrum optio earum molestiae vel voluptatum magnam maxime atque delectus assumenda
+        doloribus quam sit! Adipisci eum ipsam voluptatem!</div>
+    <script>
+        function onm(id) {
+            id.innerHTML = "hello rajvi";
+        }
+        function onout(id) {
+            id.innerHTML = "hello abcoding";
+        }
+    </script>
+    <hr>
+
+
+    <h2>onchange event</h2>
+    name :- <input type="text" name="name" id="name" onchange="uptext()">
+    <script>
+        function uptext() {
+            let x = document.getElementById("name");
+            x.value = x.value.toUpperCase();
+        }
+    </script>
+    <hr>
+
+
+    <h2>onmousedown onmouseup onclick</h2>
+    <div style="background-color: pink; color: black; padding: 10px; text-align: center; font-size: 18px;"
+        onmousedown="onm(this)" onmouseup="onout(this)">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Aliquam, non odio quo nostrum optio earum molestiae vel voluptatum magnam maxime atque delectus assumenda
+        doloribus quam sit! Adipisci eum ipsam voluptatem!</div>
+    <script>
+        function onm(id) {
+            id.innerHTML = "hello rajvi";
+        }
+        function onout(id) {
+            id.innerHTML = "hello abcoding";
+        }
+    </script>
+    <hr>
+
+
+    <h2>onfocus</h2>
+    name :- <input type="text" name="name" id="name" onfocus="uptext1(this)" onblur="uptext2(this)">
+    <script>
+        function uptext1(id) {
+            id.style.backgroundColor = "red";
+        }
+        function uptext2(id) {
+            id.style.backgroundColor = "blue";
+        }
+    </script>
+    <hr>
+
+
+    <h2>eventListener</h2>
+    <p id="add"></p>
+    <p id="add1"></p>
+    <button id="abc1">click</button>
+    <button id="abc2">click</button>
+    <script>
+        document.getElementById("abc1").addEventListener("click", hello);
+
+        function hello() {
+            document.getElementById("add").innerHTML = "hello abcoding";
+        }
+    </script>
+    <script>
+        document.getElementById("abc2").addEventListener("click", function () {
+            myname1(10, 20);
+        });
+
+        function myname1(a,z) {
+            document.getElementById("add1").innerHTML = a + z;
+        }
+    </script>
+
+</body>
+
+</html>

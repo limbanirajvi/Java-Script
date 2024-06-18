@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 20px;
+        }
+
+        .employee-form {
+            border-style: solid;
+            padding: 10px;
+            margin: auto;
+            margin-top: 30px;
+            width: 50%;
+        }
+
+        .enter {
+            text-align: center;
+        }
+
+        .employee-table {
+            border-style: solid;
+            padding: 20px;
+            margin: auto;
+            width: 70%;
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table.list {
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even),
+        table.list {
+            background-color: #dddddd;
+        }
+
+        input[type=text],
+        input[type=number] {
+            width: 100%;
+            padding: 8px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type=submit] {
+            width: 30%;
+            background-color: rgb(28, 28, 28);
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <p class="center">javascript crud</p>
+    </h1>
+    <hr>
+    <div class="employee-form">
+        <form action="#" onsubmit="event.preventDefault() ; onformsubmit()">
+            <div>
+                <label for="fullname">fullname:- </label>
+                <label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                <input type="text" name="fullname" id="fullname" placeholder="please enter your name...">
+            </div>
+            <div>
+                <label for="email">Email:-</label>
+                <input type="text" name="email" id="email" placeholder="please enter your email">
+            </div>
+            <div>
+                <label for="email">salary:-</label>
+                <input type="text" name="salary" id="salary" placeholder="please enter your salary">
+            </div>
+            <div>
+                <label for="email">city:-</label>
+                <input type="text" name="city" id="city" placeholder="please enter your city">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="employees-table">
+        <table class="list" id="employeeList">
+            <thead>
+                <tr>
+                    <th>fullname</th>
+                    <th>Email Address</th>
+                    <th>salary</th>
+                    <th>city</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var selectedRow = null;
+
+        function onformsubmit() {
+            if (validate()) {
+                var formData = readFormData();
+                if (selectedRow == null) {
+                    insertNewRecord(formData);
+                } else {
+                    updateRecord(formData);
+                }
+                resetform();
+            }
+        }
+
+        function readFormData() {
+            var formData = {};
+            formData['fullname'] = document.getElementById("fullname").value;
+            formData['email'] = document.getElementById("email").value;
+            formData['salary'] = document.getElementById("salary").value;
+            formData['city'] = document.getElementById("city").value;
+
+            return formData;
+        }
+
+        function insertNewRecord(data) {
+            var table = document.getElementById("employeeList").getElementsByTagName("tbody")[0];
+            var newRow = table.insertRow(table.length);
+
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = data.fullname;
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = data.email;
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = data.salary;
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = data.city;
+            cell5 = newRow.insertCell(4);
+            cell5.innerHTML = `<a onclick = "onEdit(this)">Edit</a>
+                                <a onclick = "onDelete(this)">Delete</a>`
+        }
+
+        function resetform() {
+            document.getElementById("fullname").value = '';
+            document.getElementById("email").value = '';
+            document.getElementById("salary").value = '';
+            document.getElementById("city").value = '';
+
+            selectedRow = null;
+        }
+
+        function onEdit(td) {
+            selectedRow = td.parentElement.parentElement;
+            document.getElementById("fullname").value = selectedRow.cells[0].innerHTML;
+            document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+            document.getElementById("salary").value = selectedRow.cells[2].innerHTML;
+            document.getElementById("city").value = selectedRow.cells[3].innerHTML;
+        }
+
+        function updateRecord(data) {
+            selectedRow.cells[0].innerHTML = data.fullname;
+            selectedRow.cells[1].innerHTML = data.email;
+            selectedRow.cells[2].innerHTML = data.salary;
+            selectedRow.cells[3].innerHTML = data.city;
+        }
+
+        function onDelete(td) {
+            if (confirm('Are you sure to delete this record ?')) {
+                row = td.parentElement.parentElement;
+                document.getElementById("employeeList").deleteRow(row.rowIndex);
+            }
+        }
+
+        function validate() {
+            isvalid = true;
+            let name = document.getElementById("fullname").value;
+            if (name == '') {
+                isvalid = false;
+                document.getElementById("fullNameValidationError").classList.remove("hide");
+            } else {
+                isvalid = true;
+                if (!document.getElementById("fullNameValidationError").classList.contains("hide")) {
+                    document.getElementById("fullNameValidationError").classList.add("hide")
+                }
+            }
+            return isvalid;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsk2</title>
+</head>
+
+<body>
+<!-- 
+    <h2>
+        <li>time-teble</li>
+    </h2>
+    <input type="text" id="add">
+    <button onclick="add()">click</button>
+    <p id="tt"></p>
+
+    <script>
+        function add() {
+            let t1 = document.getElementById("add");
+            let t2 = ' ';
+
+            if ((t1 >= 1) && (t1 <= 32)) {
+                t2 = " fail - plese try again ";
+            }
+            else if ((t1 >= 33) && (t1 <= 40)) {
+                t2 = "pass - c3+";
+            }
+            else if ((t1 >= 41) && (t1 <= 50)) {
+                t2 = " pass - c2 ";
+            }
+            else if ((t1 >= 51) && (t1 <= 60)) {
+                t2 = "pass - c1";
+            }
+            else if ((t1 >= 61) && (t1 <= 70)) {
+                t2 = "pass - b3";
+            }
+            else if ((t1 >= 71) && (t1 <= 80)) {
+                t2 = "pass - b2";
+            }
+            else if ((t1 >= 81) && (t1 <= 90)) {
+                t2 = "pass - b1";
+            }
+            else if ((t1 >= 91) && (t1 <= 100)) {
+                t2 = "pass - a1";
+            }
+            else {
+                t2 = "not found this number";
+            }
+            document.getElementById("tt").innerHTML = t2;
+        }
+
+    </script> -->
+
+    <h2>
+        <li>result 📑</li>
+    </h2>
+    <input type="text" id="new" class="inp">
+    <button onclick="myroom()" class="butt">submit</button>
+    <p id="demo"></p>
+
+    <script>
+        function myroom() {
+
+            let x = document.getElementById("new").value;
+            let y
+            if ((x >= 91) && (x <= 100)) {
+                y = "Outstanding performance in exam - A1 pass🤑";
+            } else if ((x >= 81) && (x <= 90)) {
+                y = " very Good performance in exam - A2 pass😃";
+            } else if ((x >= 71) && (x <= 80)) {
+                y = "Good performance in exam - B1 pass😊";
+            } else if ((x >= 50) && (x <= 70)) {
+                y = "Work a little harder - B2 pass😧 ";
+            } else if ((x >= 33) && (x <= 49)) {
+                y = "'try agin in better performance - C pass🙁'";
+            } else if ((x >= 1) && (x <= 32)) {
+                y = "'you are fali in exam - f 😭'";
+            } else {
+                y = "'plese chek your deta  ❌'";
+            }
+            document.getElementById("demo").innerHTML = y;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js17</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .center {
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="alert alert-primary text-center">
+                    CURD with JavaScript and localstorage
+                </h1>
+            </div>
+
+            <div class="col-lg-4 center">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="form">
+                            <input type="hidden" name="id" id="id" />
+                            <label for="">Name</label>
+                            <input type="text" placeholder="Name" class="form-control" name="name" id="name" required />
+                            <br />
+                            <label for="">Age</label>
+                            <input type="number" placeholder="Age" class="form-control" name="Age" id="Age" required />
+                            <br />
+                            <label for="">Address</label>
+                            <textarea name="address" id="address" cols="30" rows="5" required
+                                class="form-control"></textarea>
+                            <br />
+                            <label for="">Phone</label>
+                            <input type="text" placeholder="Phone" class="form-control" id="Phone" name="Phone"
+                                required />
+                            <br />
+                            <button class="btn btn-sm btn-info" type="button" onclick="save()">Save</button>
+                            <button class="btn btn-sm btn-primary" type="button" onclick="clearData()">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="datatable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Edit</th>
+                                        <th>Hapus</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function clearData() {
+            document.getElementById("form").reset();
+            document.getElementById("id").value = '';
+        }
+
+        allData();
+        function allData() {
+            table.innerHTML = ``;
+            contactlist = JSON.parse(localStorage.getItem("listItem")) ?? [];
+            contactlist.forEach(function (value, i) {
+                var table = document.getElementById("table");
+                table.innerHTML += ` 
+                <tr>
+                    <td> ${i + 1} </td>
+                    <td> ${value.name} </td>
+                    <td> ${value.Age} </td>
+                    <td> ${value.address} </td> 
+                    <td> ${value.Phone} </td> 
+                    <td> 
+                        <button class = "btn btn-sm btn-success" onclick = "find(${value.id})"><i class = "fa fa-edit"></i> </button> 
+                    </td> 
+                    <td> 
+                        <button class = "btn btn-sm btn-danger" onclick = "remove(${value.id})"><i class = "fa fa-trash"></i> </button> 
+                    </td> 
+                </tr>`
+            });
+        }
+
+        function save() {
+            // alert("hyee");
+
+            contactlist = JSON.parse(localStorage.getItem("listItem")) ?? [];
+
+            var id;
+            contactlist.length != 0 ? contactlist.findLast((item) => id = item.id) : id = 0;
+
+            if (document.getElementById("id").value) {
+                contactlist.forEach(value => {
+                    if (document.getElementById("id").value == value.id) {
+                        value.name = document.getElementById("name").value;
+                        value.age = document.getElementById("Age").value;
+                        value.address = document.getElementById("address").value;
+                        value.phone = document.getElementById("Phone").value;
+                    }
+                });
+                document.getElementById("id").value = '';
+            } else {
+
+                var item = {
+                    id: id + 1,
+                    name: document.getElementById("name").value,
+                    Age: document.getElementById("Age").value,
+                    address: document.getElementById("address").value,
+                    Phone: document.getElementById("Phone").value,
+
+                }
+                contactlist.push(item);
+            }
+            localStorage.setItem("listItem", JSON.stringify(contactlist));
+            allData();
+            document.getElementById("form").reset();
+
+        }
+
+        function find(id){
+            contactlist = JSON.parse(localStorage.getItem("listItem")) ?? [];
+            
+            contactlist.forEach(function(value){
+                if(value.id == id){
+                    document.getElementById("id").value = value.id;
+                    document.getElementById("name").value = value.name;
+                    document.getElementById("Age").value = value.Age;
+                    document.getElementById("address").value = value.address;
+                    document.getElementById("Phone").value = value.Phone;
+                }
+            });
+        }
+
+        function remove(id){
+            contactlist = JSON.parse(localStorage.getItem("listItem")) ?? [];
+            contactlist = contactlist.filter(function(value){
+                return value.id != id ;
+            });
+            localStorage.setItem("listItem", JSON.stringify(contactlist));
+            allData();
+            document.getElementById('form').reset();
+        }
+    </script>
+</body>
+</html>

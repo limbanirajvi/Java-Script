@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js18</title>
+</head>
+
+<body>
+    <h2>object and Methods</h2>
+    <p id="abc"></p>
+    <p id="abc1"></p>
+    <p id="abc2"></p>
+    <script>
+        // Object.value
+        let name = {
+            fname: "rajvi",
+            age: 18,
+            color: "blue",
+            id: 281834,
+        }
+        document.getElementById("abc").innerHTML = Object.values(name);
+
+        let name1 = {
+            fname: "rajvi",
+            age: 18,
+            color: "blue",
+            today: new Date(),
+        }
+        // name.age = name.age.tostring();
+        document.getElementById("abc1").innerHTML = JSON.stringify(name1);
+    </script>
+
+    <hr>
+    <h2>object accessor ( getters and setters ) </h2>
+    <p id="ab"></p>
+    <p id="ab1"></p>
+    <p id="ab2"></p>
+    <p id="ab3"></p>
+    <p id="ab4"></p>
+    <p id="ab5"></p>
+    <script>
+        let name2 = {
+            fname: "rajvi",
+            age: 18,
+            color: "blue",
+
+            get abc() {
+                return this.fname;
+            },
+
+            hello: function () {
+                return this.age;
+            }
+        }
+        document.getElementById("ab").innerHTML = name2.abc;
+        document.getElementById("ab1").innerHTML = name2.hello();
+
+
+        let name3 = {
+            fname: "limbani",
+            age: 19,
+            color: "black",
+
+            set ab(a) {
+                this.fname = a;
+            },
+        }
+        name3.age1 = "hello abcoding";
+        document.getElementById("ab2").innerHTML = name3.color;
+        document.getElementById("ab3").innerHTML = name3.fname;
+        document.getElementById("ab4").innerHTML = name3.age;
+        document.getElementById("ab5").innerHTML = name3.age1;
+    </script>
+    <hr>
+
+    <h2>object constuctors : type-blueprint or prototype</h2>
+    <p id="blue"></p>
+    <p id="blue1"></p>
+    <p id="blue2"></p>
+    <p id="blue3"></p>
+    <p id="blue4"></p>
+    <p id="blue5"></p>
+    <script>
+        function hello(fname, color, age,) {
+            this.name = fname;
+            this.color = color;
+            this.age = age;
+            this.yourn = "rajvi limbani";
+
+
+            // this.hy() = function(){
+            //     return this.name + ' ' + this.color;
+            // }
+        }
+        let rajvi = new hello("rajvi", "white");
+        let test = new hello("rajvi", "white", 18);
+
+
+        document.getElementById("blue").innerHTML = test;
+        document.getElementById("blue1").innerHTML = "my name is :-" + rajvi.name + "<br> " + " my color name is :-" + rajvi.color + "<br> " +
+            "my name is :-" + test.name + "<br> " + " my color name is :-" + test.color + "<br> " + " my age :-" + test.age
+
+        // add 
+        rajvi.age = 18;
+        document.getElementById("blue2").innerHTML = rajvi.age;
+
+        // Methods
+        rajvi.names = function () {
+            return this.name = " " + this.color;
+        }
+        document.getElementById("blue3").innerHTML = rajvi.names();
+
+        // chenge
+        //     .rajvihyeee("hello abcoding");
+
+        this.hyeee = function (a) {
+            this.rajvi = a;
+        }
+
+        // function(){
+        //     this.hyeee = function(a){
+        //         this.name = a;
+        //     }
+        // }
+
+        // document.getElementById("blue4").innerHTML = rajvi.hyeee();
+    </script>
+
+    <!-- <script>
+         function hello(fname,color,age){
+            this.name = fname;
+            this.color = color;
+            this.age = age;
+            this.yourn = "my name is rajvi ";
+
+            return this.name + " " + this.yourn;
+         }
+        //  let rajvi = new hello("sweta","red");
+        //  let test = new hello("sweta","red",18);
+
+         document.getElementById("blue").innerHTML = rajvi.name + ' ' + rajvi.age +' ' + rajvi.color;
+        //  document.getElementById("blue").innerHTML = hello();
+    </script> -->
+    <hr>
+
+    <h2>prototype property</h2>
+    <p id="rn"></p>
+    <script>
+        function hellos(fname, color, age) {
+            this.name = fname;
+            this.color = color;
+            this.age = age;
+        }
+        hellos.prototype.myname = "hello abcoding";
+
+        let harshal = new hellos("harshal", "red");
+
+        document.getElementById("rn").innerHTML = harshal.myname;
+    </script>
+    <hr>
+
+
+    <h2>iterables</h2>
+    <h2>function expression</h2>
+    <p id="rn1"></p>
+    <p id="rn2"></p>
+    <script>
+        let x = function (a, b) {
+            return a + b;
+        }
+        document.getElementById("rn1").innerHTML = x(7, 55);
+
+
+        // self-invoking function
+        (function () {
+            document.getElementById("rn2").innerHTML = "heyy";
+        })();
+    </script>
+    <hr>
+
+
+    <h2>ES5 ECMAScript</h2>
+    <p id="es5"></p>
+    <script>
+        var x1 = function (a, b) {
+            return a + b;
+        }
+        document.getElementById("es5").innerHTML = x1(9,7);
+    </script>
+    <hr>
+
+
+    <h2>ES6 ECMAScript</h2>
+    <p id="es6"></p>
+    <p id="es61"></p>
+    <p id="es62"></p>
+    <script>
+        var x1 = (y,z) => y + z ;
+        document.getElementById("es6").innerHTML = x1(7,4);
+
+
+        // ****************************
+        function x2(y,z){
+            if( y === undefined){
+                y = 10;
+            }
+            return y + z ; 
+        }
+        document.getElementById("es61").innerHTML = x2(9,78);
+        
+        // or(second methods)
+        function x2 (y,z = 20){
+            return y + z ;
+        }
+        document.getElementById("es62").innerHTML = x2(53);
+    </script>
+    <hr>
+
+
+    <h2>call()</h2>
+    <p id="call"></p>
+    <p id="call1"></p>
+    <script>
+        let name4 = {
+            fullname : function(){
+                return this.fname + " " + this.lname;
+            }
+        }
+
+        let first = {
+            fname : "rajvi",
+            lname : "limbani",
+        }
+        let second = {
+            fname : "shweta",
+            lname : "godhani",
+        }
+        document.getElementById("call").innerHTML = name4.fullname.call(first);
+
+
+        let name5 = {
+            fullname : function(a,b){
+                return b + this.fname + " " + this.lname + " age :-" + a ;
+            }
+        }
+
+        let first1 = {
+            fname : "rajvi",
+            lname : "limbani",
+        }
+        let second1 = {
+            fname : "shweta",
+            lname : "godhani",
+        }
+        document.getElementById("call1").innerHTML = name5.fullname.call(second1, 20, "hello");
+        
+    </script>
+    <hr>
+
+
+    <h2>Apply()</h2>
+    <p id="apply"></p>
+    <p id="apply1"></p>
+    <script>
+        let nayra  = {
+            fullname : function(){
+                return this.fname + " " + this.lname;
+            }
+        }
+
+        let first2 = {
+            fname : "rajvi",
+            lname : "limbani",
+        }
+        let second2 = {
+            fname : "shweta",
+            lname : "godhani",
+        }
+        document.getElementById("apply").innerHTML = nayra.fullname.apply(first2);
+
+
+
+        let nayra1  = {
+            fullname : function(a,b){
+                return this.fname + " " + this.lname +  " " + a +" " + b;
+            }
+        }
+        
+        let first3 = {
+            fname : "rajvi",
+            lname : "limbani",
+        }
+        let second3 = {
+            fname : "shweta",
+            lname : "godhani",
+        }
+        document.getElementById("apply1").innerHTML = nayra1.fullname.apply(second3,["mansi","sonal"]);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js13</title>
+</head>
+
+<body>
+    <h2>Array function</h2>
+    <p id="nr"></p>
+    <p id="nr1"></p>
+    <p id="nr2"></p>
+    <script>
+        let hello = '';
+        hello = function () {
+            return "hello rajvi";
+        }
+        document.getElementById("nr").innerHTML = hello();
+
+        let hii = '';
+        hii = () => {
+            return "hello bvm";
+        }
+        document.getElementById("nr1").innerHTML = hii();
+
+        let hey = '';
+        hey = () => "hello limbani rajvi";
+        document.getElementById("nr2").innerHTML = hey();
+    </script>
+
+    <hr>
+
+    <h2> JSON = JAVASCRIPT OBJECT NOTATION </h2>
+    <pre>
+        1. json String into js object 
+            json.parse()
+            
+        2. object into json String 
+            json.stringify()
+        
+    </pre>
+    <hr>
+    <h2>json.parse()</h2>
+
+    <p id="prs"></p>
+    <p id="prs1"></p>
+    <p id="prs2"></p>
+    <p id="prs3"></p>
+    <p id="prs4"></p>
+
+    <script>
+        // object 
+        let name = '{"name":"rajvi", "age":20,"color":"white"}';
+        let change = JSON.parse(name);
+        document.getElementById("prs").innerHTML = change['name'];
+        document.getElementById("prs1").innerHTML = change['name'] + " " + change.age + " " + change.color;
+        document.getElementById("prs2").innerHTML = name;
+
+        // Array 
+        let Array = '["rajvi","sonal","mansi","shweta"]';
+        let ab = JSON.parse(Array);
+        document.getElementById("prs3").innerHTML = ab;
+        document.getElementById("prs4").innerHTML = ab[0];
+    </script>
+
+    <hr>
+
+    <h2>json.stringify</h2>
+
+    <p id="str"></p>
+    <p id="str1"></p>
+
+    <script>
+        // Object 
+        let abc = { name: "rajvi", age: 20, color: "white" };
+        let a = JSON.stringify(abc);
+        document.getElementById("str").innerHTML = a;
+
+        // Array 
+        let abc1 = '["rajvi","sonal","mansi", 10 ]';
+        let b = JSON.stringify(abc1);
+        document.getElementById("str1").innerHTML = b;
+
+    </script>
+
+    <hr>
+    <p id="ta1"></p>
+    <p id="ta2"></p>
+    <script>
+        let demo = '{"name":"rajvi", "age":20,"color":"white","cars":["tata","bmw","audi"]}';
+        let test = JSON.parse(demo)
+        console.log(test);
+        document.getElementById("ta1").innerHTML = test;
+
+        let b1 = '';
+        for (let i in test.cars) {
+            b1 += test.cars[i] + "<br>";
+        }
+        document.getElementById("ta2").innerHTML = b1;
+    </script>
+
+    <!-- <p id="ta1"></p>
+     <p id="ta2"></p>
+     <script>
+        let demo = '{"name":"rajvi", "age":20,"color":"white","cars":["tata","bmw","audi"]}';
+        let test   =  JSON.parse(demo)
+        console.log(demo);
+ 
+        let b1 = '';
+        for(let i in test.cars){
+            b1 += test.cars[i] + "<br>" ;
+            console.log(b1);
+        }
+        document.getElementById("ta1").innerHTML = test;
+        document.getElementById("ta2").innerHTML = b1;
+     </script> -->
+
+
+</body>
+
+</html>

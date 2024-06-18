@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD harshal</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .employe-form {
+            border: 1px solid black;
+            width: 30%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .employe-table {
+            border: 1px solid black;
+            padding: 20px;
+            width: 70%;
+            margin: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        tr:nth-child(even),
+        table {
+            background-color: #dddd;
+            width: 100%;
+            text-align: center;
+        }
+
+        input[type=text],
+        input[type=number],
+        input[type=email] {
+            width: 100%;
+            padding: 8px 10px;
+            margin: 8px 0px;
+            display: inline-block;
+            border-radius: 10px;
+            border: none;
+            background-color: #dddd;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        label {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        input[type=submit] {
+            width: 20%;
+            padding: 8px 10px;
+            border: none;
+            background-color: #ddd;
+            background-color: rgb(144, 2, 2);
+            color: white;
+            margin-top: 10px;
+            font-size: 17px;
+
+        }
+
+        .center {
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: crimson;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .validation-error {
+            color: red;
+        }
+        .delet{
+            margin-left: 12px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>
+        <p class="center">Javascript CRUD </p>
+    </h1>
+    <br>
+
+    <div class="employe-form">
+        <form action="#" onsubmit="event.preventDefault(); onformdsubmit();">
+            <div>
+                <label for="fullname">Full Name :-</label>
+                <input type="text" name="fullname" id="fullname" placeholder="Enter your name ">
+                <label class="validation-error hide" id="validdationform">This field is required</label>
+
+            </div>
+
+            <div>
+                <label for="email">Email :-</label>
+                <input type="email" name="email" id="email" placeholder="Enter your emailID">
+                <label class="validation-error hide" id="emaildationform">Plese Enter valid emailID</label>
+
+            </div>
+
+            <div>
+                <label for="salary">Salary :-</label>
+                <input type="number" name="salary" id="salary" placeholder="Enter your salary">
+                <label class="validation-error hide" id="salarydationform">Please enter your salary</label>
+
+            </div>
+
+            <div>
+                <label for="city">City :-</label>
+                <input type="text" name="city" id="city" placeholder="Enter your city">
+                <label class="validation-error hide" id="citydationform">Please enter your city</label>
+
+            </div>
+
+            <div class="form-action-bottons">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="employe-table">
+        <table class="list" id="employelist">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var selctedRow = null;    
+
+        function onformdsubmit() {
+            if (validate()) {
+                var data = readform();
+                if (selctedRow == null) {
+                    insertform(data);
+                } else {
+                    updateform(data);
+                }
+                resetform();
+            }
+        }
+
+        function validate() {
+            valid = true;
+
+            let fullname = document.getElementById("fullname").value;
+            if (fullname == '') {
+                valid = false;
+                document.getElementById("validdationform").classList.remove("hide");
+            } else {
+                valid = true;
+                if (!document.getElementById("validdationform").classList.contains("hide")) {
+                    document.getElementById("validdationform").classList.add("hide");
+                }
+            }
+
+            let email = document.getElementById("email").value;
+            if (email == '') {
+                valid = false;
+                document.getElementById("emaildationform").classList.remove("hide");
+            } else {
+                valid = true;
+                if ((!document.getElementById("emaildationform").classList.contains("hide"))) {
+                    document.getElementById("emaildationform").classList.add("hide");
+                }
+            }
+
+            let salary = document.getElementById("salary").value;
+            if (salary == '') {
+                valid = false;
+                document.getElementById("salarydationform").classList.remove("hide");
+            } else {
+                valid = true;
+                if ((!document.getElementById("salarydationform").classList.contains("hide"))) {
+                    document.getElementById("salarydationform").classList.add("hide");
+                }
+            }
+
+            let city = document.getElementById("city").value;
+            if (city == '') {
+                valid = false;
+                document.getElementById("citydationform").classList.remove("hide");
+            } else {
+                valid = true;
+                if ((!document.getElementById("citydationform").classList.contains("hide"))) {
+                    document.getElementById("citydationform").classList.add("hide");
+                }
+            }
+
+            return valid;
+
+            console.log(validate);
+        }
+
+        function readform() {
+            var data = {};
+            data['fullname'] = document.getElementById("fullname").value;
+            data['email'] = document.getElementById("email").value;
+            data['salary'] = document.getElementById("salary").value;
+            data['city'] = document.getElementById("city").value;
+
+            return data;
+           
+        }
+
+        function insertform(h) {
+            var table = document.getElementById("employelist").getElementsByTagName('tbody')[0];
+
+            var newRow = table.insertRow(table.length);
+
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = h.fullname;
+
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = h.email;
+
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = h.salary;
+
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = h.city;
+
+            cell5 = newRow.insertCell(4);
+            cell5.innerHTML = `<a onclick="edit(this)">EDIT</a> 
+
+                                <a class="delet" onclick="onDelete(this)">DELETE</a>`
+
+
+
+        }
+
+        function updateform(data) {
+            selctedRow.cells[0].innerHTML = data.fullname;
+            selctedRow.cells[1].innerHTML = data.email;
+            selctedRow.cells[2].innerHTML = data.salary;
+            selctedRow.cells[3].innerHTML = data.city;
+
+
+
+        }
+
+        function resetform() {
+            // selctedRow = td.parentElement.parentElement; 
+
+            document.getElementById("fullname").value = '';
+            document.getElementById("email").value = '';
+            document.getElementById("salary").value = '';
+            document.getElementById("city").value = '';
+
+            selctRow = null;
+
+            console.log(resetform);
+
+        }
+
+        function edit(td) {
+            selctedRow = td.parentElement.parentElement;
+
+            document.getElementById("fullname").value = selctedRow.cells[0].innerHTML;
+            document.getElementById("email").value = selctedRow.cells[1].innerHTML;
+            document.getElementById("salary").value = selctedRow.cells[2].innerHTML;
+            document.getElementById("city").value = selctedRow.cells[3].innerHTML;
+
+            console.log(edit);
+
+        }
+
+        function onDelete(td) {
+            if (td) {
+                row = td.parentElement.parentElement;
+                document.getElementById("employelist").deleteRow(row.rowIndex);
+               console.log(onDelete);
+            }
+        }
+    </script>
+
+</body>
+
+
+</html>

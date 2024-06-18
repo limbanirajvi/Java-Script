@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js11</title>
+</head>
+<body>
+    <h2>data object </h2>
+    <p id="rajvi"></p>
+    <p id="rajvi1"></p>
+    <p id="rajvi2"></p>
+    <p id="rajvi3"></p>
+    <script>
+        // let car = new Data();
+        let car1 = new Date("2023-3-12");
+        // document.getElementById("rajvi").innerHTML =car1;
+
+
+        // new Date (year,month,day,hours, min, seconds,ms);
+        // let d = new Date (2015,5,3,12,12,12);
+        // let d = new Date ().getFullYear();
+        // let d = new Date().getMilliseconds();
+        // let d = new Date("2n025/03/12");
+        let d = new Date();
+        document.getElementById("rajvi1").innerHTML =d;
+        document.getElementById("rajvi2").innerHTML =d.toString();
+        document.getElementById("rajvi3").innerHTML =d.toDateString();
+    </script>
+
+    <hr>
+
+    <h2>GET DATE METHODS</h2>
+    <pre>
+        get FullYear
+        get month 
+        get date
+        get day
+        get hours
+        get minitues
+        get seconds
+        get time()
+    </pre>
+    <p id="get"></p>
+    <script>
+        let nr = new Date().getDay();
+        document.getElementById("get").innerHTML =nr;
+    </script>
+
+    <hr>
+
+    <h2>SET DATE METHODS</h2>
+    <pre>
+        get FullYear
+        get month 
+        get date
+        get day
+        get hours
+        get minitues
+        get seconds
+        get time()
+    </pre>
+    <p id="set"></p>
+    <p id="set1"></p>
+    <p id="set2"></p>
+    <p id="set3"></p>
+    <p id="set4"></p>
+    <p id="set5"></p>
+    <p id="set6"></p>
+    <p id="set7"></p>
+    <p id="set8"></p>
+    <script>
+        let n1 = new Date();
+        n1.setFullYear(2025);
+        document.getElementById("set").innerHTML =n1;
+
+        let nayra = '';
+        let today = new Date();
+        let nextday = new Date();
+         nextday.setFullYear(2024);
+        if(nextday > today){
+            nayra = "YES";
+        }else{
+            nayra = "NO";
+        }
+        // console.log(nayra);
+        document.getElementById("set1").innerHTML = nayra;
+    </script>
+
+    <hr>
+
+    <h2>MATH OBJECT </h2>
+    <p id="math"></p>
+    <p id="math1"></p>
+    <p id="math2"></p>
+    <p id="math3"></p>
+    <p id="math4"></p>
+    <p id="math5"></p>
+    <p id="math6"></p>
+    <p id="math7"></p>
+    <p id="math8"></p>
+    <p id="math9"></p>
+    <p id="math10"></p>
+    <p id="math11"></p>
+    <p id="math12"></p>
+    <p id="math13"></p>
+    <script>
+
+        // round 
+        let a = 10.2;
+        document.getElementById("math").innerHTML = Math.round(a);
+
+        // ceil 
+        let b = 3.1;
+        let b1 = -2.9;
+        document.getElementById("math1").innerHTML = Math.ceil(b) ;
+        document.getElementById("math2").innerHTML = Math.ceil(b1) ;
+
+        // floor 
+        let c = 4.8;
+        let c1 = -2.6;
+        document.getElementById("math3").innerHTML = Math.floor(c);
+        document.getElementById("math4").innerHTML = Math.floor(c1);
+
+        // abs 
+        let e = - 5.3;
+        document.getElementById("math5").innerHTML = Math.abs(e);
+
+        // sqrt 
+        document.getElementById("math6").innerHTML = Math.sqrt(36);
+
+        // pow 
+        document.getElementById("math7").innerHTML = Math.pow(2,3);
+
+        // log 
+        document.getElementById("math8").innerHTML = Math.log(1);
+
+        // min 
+        document.getElementById("math12").innerHTML = Math.min(28,8);
+
+        // max 
+        document.getElementById("math13").innerHTML = Math.max(8,15);
+        
+
+        // random()  (otp - 4/6 )
+        document.getElementById("math9").innerHTML = Math.random();
+        let x = Math.random() * 100;
+        document.getElementById("math10").innerHTML = x;
+        let x1 = Math.floor((Math.random() * 1000000) + 1);
+        document.getElementById("math11").innerHTML = x1;
+    </script>
+
+    <hr>
+    <h2>BREAK AND CONTINUES</h2>
+    <p id="nr"></p>
+    <p id="rn"></p>
+    <script>
+        // break
+        let text = '';
+        for (let i = 1; i <= 10 ; i++){
+            console.log(i);
+            if(i==5){
+                break;
+            }
+            text += "this number is break -" + i + "<br>" ;
+        }
+        document.getElementById("nr").innerHTML = text;
+
+
+        // continue 
+        let test = '';
+        for (let i = 1; i <= 10 ; i++){
+            // console.log(i);
+            if(i==10){
+                continue;
+            }
+            text += "this number is continue -" + i + "<br>" ;
+        }
+        document.getElementById("rn").innerHTML = text;
+
+        let name3 = ["Shweta","sonal","mansi","rajvi","harshal"];
+        let ab = name3.length;
+        let text1 = '';
+        console.log(ab);
+        
+        for(let i = 0 ; i < ab; i++){
+            console.log([i]);
+            if(name3);
+        }
+    </script>
+
+</body>
+</html>

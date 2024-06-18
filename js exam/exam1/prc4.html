@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>object</h2>
+    <p id="demo"></p>
+
+    <script>
+        let name = {
+            fname : 'audi',
+            model : '2023',
+            color : 'bleck',
+            id : '1258',
+
+            fullname :function(){
+                return "hello rajvi"
+            },
+
+            names : function () {
+                return this.fname +"my name is :-" + this.rajvi ;
+            },
+
+            class_name :['sweta' ,'mansi', 'rajvi','sonal','mansi'],
+
+            Obj :{
+                car : "thar",
+                model : "A1" ,
+                city : "mumbai",
+            }
+        }
+        // document.getElementById("demo").innerHTML = name ["fname"] + " " + names.rajvi;
+        // document.getElementById("demo").innerHTML = name.fullname() ;
+        // document.getElementById("demo").innerHTML = name.names ;
+        // document.getElementById("demo").innerHTML = name.class_name ;
+        // document.getElementById("demo").innerHTML = name.class_name[3] ;
+        document.getElementById("demo").innerHTML = name.Obj.city;
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js8</title>
+</head>
+<body>
+    <h2>javascript numbers</h2>
+    <h2>numbers methods</h2>
+    <p id="test"></p>
+    <p id="test1"></p>
+    <p id="test2"></p>
+
+    <script>
+        let x = 10;
+        let x1 = 10.50;
+        let x2 = x + x1 ;
+
+        document.getElementById("test").innerHTML = x2;
+
+        let a = 10 + 10 + "hello" ;
+        let a1 = 10 / "hii"
+        let a2 = 10 / 0 ;
+        document.getElementById("test").innerHTML = a;
+
+        // Number to String
+        console.log(typeof(toString(a)));
+
+        // String to Number
+        console.log(typeof(Number.parseInt(a)));
+
+        // toexponential()
+        let ab = 1524.152;
+        document.getElementById("test").innerHTML = ab.toExponential(2);
+
+        // tofixed
+        document.getElementById("test").innerHTML = ab.toFixed(2);
+
+        // toprecision
+        document.getElementById("test").innerHTML = ab.toPrecision(3);
+
+        document.getElementById("test1").innerHTML = Number("10");
+
+        document.getElementById("test1").innerHTML = Number.parseInt("10");
+
+        document.getElementById("test1").innerHTML = Number.parseFloat("10.566");
+
+        document.getElementById("test1").innerHTML = parseFloat("10.02");
+
+
+    </script>
+</body>
+</html>

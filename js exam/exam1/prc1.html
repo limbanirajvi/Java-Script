@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>petarn top</h2>
+    <input type="text" id="rajvi">
+    <button onclick="rajvi()">click</button>
+    <p id="rajvi1"></p>
+    <script>
+        function rajvi() {
+            let text = document.getElementById("rajvi").value;
+            let f1 = " ";
+            for ($a = 1; $a <= text; $a++) {
+                for ($b = 1; $b <= $a; $b++) {
+                    f1 += " * ";
+                }
+                f1 += "<br>"
+            }
+            document.getElementById("rajvi1").innerHTML = f1;
+        }
+
+    </script>
+
+
+
+    <!-- <h2>petarn </h2>
+    <input type="text" id="rajvi-1">
+    <button onclick="RL()">click</button>
+    <p id="rajvi2"></p>
+    <script>
+        function RL() {
+            let text = document.getElementById("rajvi-1").value;
+            let f1 = " ";
+            for ($i = 1; $a <= text; $a++) {
+                for ($b = 1; $b <= $i; $b++) {
+                    f1 += " * ";
+                }
+                f1 += "<br>"
+            }
+            document.getElementById("rajvi2").innerHTML = f1;
+        }
+
+    </script> -->
+</body>
+
+</html>

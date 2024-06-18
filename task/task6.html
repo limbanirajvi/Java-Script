@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsk6</title>
+</head>
+<body>
+    <h2>creat a constructors and use in prototype function</h2>
+    <p id="prototype"></p>
+    <p id="in-arry"></p>
+    <p id="in-string"></p>
+    <script>
+        function Hell(firstname, myage, some) {
+            this.firstname = firstname;
+            this.myage = myage;
+            this.some = some;
+        }
+        let rajvi = new Hell("rajvi", 18, "03");
+
+        Hell.prototype.proto = function () {
+            return this.firstname + " " + this.myage;
+        };
+        document.getElementById("prototype").innerHTML = rajvi.proto();
+
+        let name = ["rajvi", "mansi", "sonal", "shweta"];
+        let text = " ";
+        for (let w of name) {
+            text += " my name is :- " + [w] + "<br>";
+        }
+        document.getElementById("in-arry").innerHTML = text;
+
+        let name1 = "hello rajvi";
+        let text1 = " ";
+        for (let v of name1) {
+            text1 += [v] + "<br>";
+        }
+        document.getElementById("in-string").innerHTML = text1;
+    </script>
+    <hr>
+
+    <h2>create a Set</h2>
+    <p id="Set"></p>
+    <script>
+        let name2 = new Set(["a", "b", "c", "d", "e"]);
+        document.getElementById("Set").innerHTML = name2.size;
+    </script>
+    <hr>
+
+    <h2>set null and add value</h2>
+    <p id="Set1"></p>
+    <script>
+        let name3 = new Set();
+        name3.add("a");
+        name3.add("b");
+        name3.add("c");
+        name3.add("d");
+        document.getElementById("Set1").innerHTML = name3.size;
+    </script>
+    <hr>
+
+    <h2>create a variables and Set a variables</h2>
+    <p id="Set2"></p>
+    <script>
+        let rajvi1 = new Set();
+        let rajvi2 = "rajvi";
+        let rajvi3 = "shweta";
+        let rajvi4 = "mansi";
+        let rajvi5 = "sonal";
+        rajvi1.add(rajvi2);
+        rajvi1.add(rajvi3);
+        rajvi1.add(rajvi4);
+        rajvi1.add(rajvi5);
+        document.getElementById("Set2").innerHTML = rajvi1.size;
+    </script>
+    <hr>
+
+    <h2>set in foreach ()</h2>
+    <p id="Set3"></p>
+    <script>
+        let niraj12 = " ";
+        niraj11.forEach(function (v) {
+            niraj12 += "my name is" + v + "<br>";
+        });
+        document.getElementById("Set3").innerHTML = niraj12;
+
+    </script>
+    <hr>
+
+    <h2>create a Map ()</h2>
+    <p id="Map"></p>
+    <script>
+        let rajvi8 = new Map([
+            ["rajvi", 1000],
+            ["shweta", 2000],
+            ["mansi", 3000],
+            ["sonal", 4000],
+        ]);
+        document.getElementById("Map").innerHTML = rajvi8.get("rajvi");
+    </script>
+    <hr>
+
+    <h2>set a Map values</h2>
+    <p id="Map1"></p>
+    <script>
+        let rajvi9 = new Map();
+        rajvi9.set("rajvi", 1000);
+        rajvi9.set("shweta", 2000);
+        rajvi9.set("mansi", 3000);
+        rajvi9.set("sonal", 4000);
+        document.getElementById("Map1").innerHTML = rajvi9.get("sonal");
+    </script>
+    <hr>
+
+    <h2>Map chenge values</h2>
+    <p id="Map2"></p>
+    <script>
+        rajvi9.set("rajvi", 5000)
+        document.getElementById("Map2").innerHTML = rajvi9.get("rajvi");
+
+    </script>
+    <hr>
+
+    <h2>Map delete values</h2>
+    <p id="Map3"></p>
+    <script>
+        rajvi9.delete("rajvi");
+        document.getElementById("Map3").innerHTML = rajvi9.size;
+
+    </script>
+    <hr>
+
+    <h2>Map delete clear</h2>
+    <p id="Map4"></p>
+    <script>
+        rajvi9.clear();
+        document.getElementById("Map4").innerHTML = rajvi9.size;
+    </script>
+    <hr>
+
+    <h2>Map in forech ()</h2>
+    <p id="Map5"></p>
+    <script>
+        let text12 = " ";
+        rajvi8.forEach(function (v, k) {
+            text12 += " my name is " + k + " and " + " my salery is " + v + "<br>";
+        });
+        document.getElementById("Map5").innerHTML = text12;
+
+    </script>
+    <hr>
+
+    <h2> pasing the peramiters</h2>
+    <p id="peramiters"></p>
+    <script>
+        let a = hye(10, 20);
+        function hye(a, b) {
+            return " hello rajvi " + " your selery is " + 5000 + (a + b);
+        }
+        document.getElementById("peramiters").innerHTML = a;
+
+    </script>
+    <hr>
+
+    <h2>constructors method</h2>
+    <p id="new-constructors"></p>
+    <p id="rn1"></p>
+    <p id="rn2"></p>
+    <p id="rn3"></p>
+    <script>
+        function helloniraj(name, name1, color, game, number) {
+            this.sername = name;
+            this.fname = name1;
+            this.mycolor = color;
+            this.mygame = game;
+            this.mynumber = number;
+        }
+
+        let nirajj = new helloniraj("limbani", "rajvi", "white", "cricket", "09");
+
+        document.getElementById("new-constructors").innerHTML =
+            "My name is " + rajvi.sername + "<br>" +
+            "My number is " + rajvi.fname + "<br>" +
+            "My father is " + rajvi.mycolor + "<br>" +
+            "My mother is " + rajvi.mynumber + "<br>" +
+            "My game is " + rajvi.mygame + "<br>";
+
+        let ram1 = {
+            car: "supra",
+            modal: "mk4",
+            color: "black",
+            id: "9029",
+
+            city: {
+                rajvi: "surat",
+                mansi: "ahmedabad",
+            },
+
+            fav: {
+                criceter: "gill",
+                football: "ronaldo"
+            },
+
+            rn1: function () {
+                return "hello abc" + " " + " my car is " + " " + ram1.car;
+            },
+
+            rn2: function () {
+                return " my city is " + this.city.rajvi;
+            },
+
+            rn3: function () {
+                return " my fev criceter is " + this.fav.criceter;
+            },
+
+        };
+
+        document.getElementById("rn1").innerHTML = ram1.rn1();
+        document.getElementById("rn2").innerHTML = ram1.rn2();
+        document.getElementById("rn3").innerHTML = ram1.rn3();
+    </script>
+
+</body>
+
+</html>
